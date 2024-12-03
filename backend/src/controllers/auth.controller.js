@@ -186,4 +186,4 @@ export const checkAuth = (req, res) => {
             message: "Internal Server Error"
         })
     }
-}
+};
