@@ -6,8 +6,9 @@ const AuthImagePattern = ({ title, subtitle }) => {
 
     // Function to generate random indices for blinking
     const generateRandomBlink = () => {
-        const randomIndices = Array.from({ length: Math.floor(gridSize * 0.2) }, () =>
-            Math.floor(Math.random() * gridSize)
+        const randomIndices = Array.from(
+            { length: Math.floor(gridSize * 0.2) },
+            () => Math.floor(Math.random() * gridSize)
         );
         setBlinkIndices(randomIndices);
     };
@@ -28,8 +29,8 @@ const AuthImagePattern = ({ title, subtitle }) => {
                     {[...Array(gridSize)].map((_, i) => (
                         <div
                             key={i}
-                            className={`aspect-square rounded-2xl ${blinkIndices.includes(i) ? "bg-primary animate-pulse" : "bg-primary/60"
-                                }`}
+                            className={`aspect-square rounded-2xl transform transition-all duration-300 ${blinkIndices.includes(i) ? "bg-primary animate-pulse" : "bg-primary/60"
+                                } hover:bg-primary`}
                         />
                     ))}
                 </div>
