@@ -6,7 +6,7 @@ const AuthImagePattern = ({ title, subtitle }) => {
 
     // Function to generate random indices for blinking
     const generateRandomBlink = () => {
-        const randomIndices = Array.from({ length: Math.floor(gridSize * 0.1) }, () =>
+        const randomIndices = Array.from({ length: Math.floor(gridSize * 0.2) }, () =>
             Math.floor(Math.random() * gridSize)
         );
         setBlinkIndices(randomIndices);
@@ -22,9 +22,9 @@ const AuthImagePattern = ({ title, subtitle }) => {
     }, []);
 
     return (
-        <div className="hidden lg:flex items-center justify-center bg-base-200 p-16">
+        <div className="hidden lg:flex items-center justify-center bg-base-200 p-20">
             <div className="max-w-md text-center">
-                <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="grid grid-cols-3 gap-5 mb-3">
                     {[...Array(gridSize)].map((_, i) => (
                         <div
                             key={i}
