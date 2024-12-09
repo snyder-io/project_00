@@ -7,6 +7,7 @@ import SettingsPage from "./pages/SettingsPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import { useAuthStore } from "./store/useAuthStore.js";
 import { useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
@@ -26,11 +27,15 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={authUser ? <HomePage /> : <Navigate to="/login" />} />
-        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/signup" element={!authUser?<SignUpPage />:<Navigate to="/" />} />
         <Route path="/login" element={!authUser ? <LogInPage /> : <Navigate to="/" />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
       </Routes>
+      <Toaster
+        position="bottom-right"
+        reverseOrder={true}
+      />
     </div>
   )
 }
